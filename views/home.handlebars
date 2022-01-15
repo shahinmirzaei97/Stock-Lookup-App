@@ -1,1 +1,18 @@
-<h1>Handlebars homepage</h1>
+<div class="jumbotron">
+  <h1 class="display-4">{{stockData.companyName}} ({{stockData.symbol}})</h1>
+ 
+<strong>Exchange: </strong>{{stockData.primaryExchange}}<br/>
+<strong>Latest Price: </strong>${{stockData.latestPrice}}<br/>
+<strong>Previous Close: </strong>${{stockData.previousClose}}<br/>
+<strong>Percent Change: </strong>%{{stockData.changePercent}}<br/>
+<strong>Market Cap: </strong>${{stockData.marketCap}}<br/>
+<strong>Year to Data change: </strong>{{stockData.ytdChange}}<br/>
+<strong>52 Week High: </strong>${{stockData.week52High}}<br/>
+<strong>52 Week Low: </strong>${{stockData.week52Low}}<br/></p>
+
+</div>
+
+
+{{!-- {{#each stockData}}
+    {{@key}} | {{this}} <br/>
+{{/each}} --}}
