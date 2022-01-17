@@ -29,6 +29,9 @@ app.set('view engine', 'handlebars');
 // Set Handlebar Index Get Route
 app.get('/', function (req, res,) {
     callAPI(function(doneAPI){
+        doneAPI.changePercent = doneAPI.changePercent.toFixed(2);
+        doneAPI.ytdChange = doneAPI.ytdChange.toFixed(2);
+        doneAPI.marketCap = doneAPI.marketCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         res.render('home', {
             stockData : doneAPI
         });
@@ -38,20 +41,17 @@ app.get('/', function (req, res,) {
 // Set Handlebar Index Post Route
 app.post('/', function (req, res,) {
     callAPI(function(doneAPI){
-        //posted_request = req.body.stock_ticker;
+        doneAPI.changePercent = doneAPI.changePercent.toFixed(2);
+        doneAPI.ytdChange = doneAPI.ytdChange.toFixed(2);
+        doneAPI.marketCap = doneAPI.marketCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         res.render('home', {
             stockData : doneAPI
         });
     }, req.body.stock_ticker);
 });
-// About page route
-app.get('/about', function (req, res,) {
-    res.render('about');
-});
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
+//Listen on Port
 app.listen(PORT, () => console.log('Server listening on port ' + PORT));
