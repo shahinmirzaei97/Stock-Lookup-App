@@ -1,4 +1,4 @@
-# StockApp README file
+# Stock-Lookup-App README file
 
 This application is made in JavaScript using Node.Js, handlebars and fetches API from a website to return stock data based on the users input.  
 
